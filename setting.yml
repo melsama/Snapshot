@@ -6,6 +6,11 @@ default_interval: 100
 rule:
   - database: snapshot_db
     table: snapshot_table
+    host: 127.0.0.1
+    query_mode: refresh
+    columns: 'id,name,snapshot_id' 
+  - database: snapshot_db
+    table: snapshot_table
     host: localhost
     query_mode: refresh
     columns: 'id,name,snapshot_id' 
