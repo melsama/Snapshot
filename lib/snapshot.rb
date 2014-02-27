@@ -15,7 +15,7 @@ class Snapshot
     mysql_username  = setting['mysql_username']
     mysql_password  = setting['mysql_password']
     data_dir        = setting['data_dir'] || current_dir + '/data'
-    row_scale       = setting['row_scale']
+    row_scale       = setting['default_row_scale']
     interval        = setting['default_interval']
     rules           = setting['rule']
 
@@ -28,6 +28,7 @@ class Snapshot
       table      = rule['table']
       query_mode = rule['query_mode']
       sleep_time = rule['sleep_time'].nil? ? interval : rule['sleep_time']
+      row_scale  = rule['row_scale'].nil? ? row_scale : rule['row_scale']
 
       FileUtils.mkdir_p [data_dir, table].join('/').to_s unless dry_run
     

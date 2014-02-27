@@ -1,7 +1,7 @@
 mysql_username:
 mysql_password:
 data_dir: 
-row_scale: 5000000
+default_row_scale: 5000000
 default_interval: 100
 rule:
   - database: snapshot_db
